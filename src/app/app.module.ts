@@ -18,8 +18,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {HttpClientModule} from '@angular/common/http';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 @NgModule({
-  declarations: [AppComponent, UserRegistrationFormComponent],
+  declarations: [AppComponent, UserRegistrationFormComponent, UserDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

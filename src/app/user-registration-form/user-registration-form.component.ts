@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {ApiHelperService} from '../utils/api-helper.service';
 import {Country} from '../utils/country.model';
 import {MyErrorStateMatcher} from '../utils/my-state-error-matcher';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-registration-form',
@@ -22,9 +23,9 @@ export class UserRegistrationFormComponent implements OnInit {
   ]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
   nameFormControl = new FormControl('', []);
-  countryFormControl = new FormControl('', []);
+  countryFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
-  constructor(private apiHealper: ApiHelperService, private snackBar: MatSnackBar) {}
+  constructor(private apiHealper: ApiHelperService, private snackBar: MatSnackBar, private route: Router) {}
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {
@@ -55,9 +56,10 @@ export class UserRegistrationFormComponent implements OnInit {
     this.isLoading = false;
     this.apiHealper.postEmpoyee(employe).subscribe(res => {
       if (res) {
-        this.snackBar.open('data is stored.');
+        this.route.navigateByUrl('/user?userid=' + res?.id);
+        this.snackBar.open('data is stored.','close');
       } else {
-        this.snackBar.open('Some thing went wrong.');
+        this.snackBar.open('Some thing went wrong.','close');
       }
       this.isLoading = true;
     });

@@ -1005,6 +1005,30 @@
       "country": "Algeria",
       "email": "some@email.com",
       "id": 4
+    },
+    {
+      "username": "username123",
+      "password": "password123",
+      "name": "Full Name",
+      "country": "Barbados",
+      "email": "some@email.com",
+      "id": 5
+    },
+    {
+      "username": "someUsername",
+      "password": "asdasdasdasd",
+      "name": "Full Name",
+      "country": "Algeria",
+      "email": "some@email.com",
+      "id": 6
+    },
+    {
+      "username": "someUsername",
+      "password": "asdasdasdasd",
+      "name": "Full Name",
+      "country": "Central African Republic",
+      "email": "some@email.com",
+      "id": 7
     }
   ]
 }

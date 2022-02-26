@@ -1,0 +1,8 @@
+<div *ngIf="isLoading">
+  <p>{{employee.id}}</p>
+  <p>{{employee.username}}</p>
+  <p>{{employee.name}}</p>
+  <p>{{employee.country}}</p>
+  <p>{{employee.email}}</p>
+</div>
+<mat-spinner *ngIf="!isLoading"></mat-spinner>
