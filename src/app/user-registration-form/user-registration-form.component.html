@@ -1,6 +1,6 @@
-<div class="content" role="main">
+<div class="content" role="main" *ngIf="isLoading">
   <div class="form-container">
-    <form class="">
+    <form (ngSubmit)="onSubmit()">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
         <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
@@ -52,18 +52,19 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>State</mat-label>
-        <input matInput
-               aria-label="State"
-               [matAutocomplete]="auto"
-               [formControl]="countryFormControl">
+        <mat-label>Country</mat-label>
+        <input matInput aria-label="Country" [matAutocomplete]="auto" [formControl]="countryFormControl">
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let state of filteredCountries | async" [value]="state.code">
-            <img class="example-option-img" aria-hidden [src]="state.code" height="25">
-            <span>{{state.name}}</span>
+          <mat-option *ngFor="let state of filteredCountries | async" [value]="state.name">
+            <span class="fi fi-{{state.code.toLowerCase()}}"></span>
+            <span class="margin"> {{state.name}}</span>
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
+      <button type="submit" mat-stroked-button color="primary">Submit</button>
+      <button type="reset" mat-stroked-button color="primary" ng-click="resetForm()">Reset</button>
     </form>
+
   </div>
 </div>
+<mat-spinner *ngIf="!isLoading"></mat-spinner>
