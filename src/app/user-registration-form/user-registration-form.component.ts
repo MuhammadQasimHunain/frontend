@@ -13,6 +13,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./user-registration-form.component.scss'],
 })
 export class UserRegistrationFormComponent implements OnInit {
+
   isLoading = true;
   filteredCountries: Observable<Country[]>;
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
@@ -25,9 +26,9 @@ export class UserRegistrationFormComponent implements OnInit {
   nameFormControl = new FormControl('', []);
   countryFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
+
   constructor(private apiHealper: ApiHelperService, private snackBar: MatSnackBar, private route: Router) {}
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {
     this.isLoading = false;
     this.filteredCountries = this.apiHealper.getCountries();
