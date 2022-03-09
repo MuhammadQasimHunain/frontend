@@ -1,8 +1,31 @@
-<div *ngIf="isLoading">
-  <p>{{employee.id}}</p>
-  <p>{{employee.username}}</p>
-  <p>{{employee.name}}</p>
-  <p>{{employee.country}}</p>
-  <p>{{employee.email}}</p>
-</div>
-<mat-spinner *ngIf="!isLoading"></mat-spinner>
+<mat-card>
+  <div class="content" role="main" *ngIf="isLoading">
+    <table class="table">
+      <tr>
+        <td>Employee ID :</td>
+        <td>{{employee.id}}</td>
+      </tr>
+      <tr>
+        <td>Employee Username :</td>
+        <td>{{employee.username}}</td>
+      </tr>
+      <tr>
+        <td>Employee name :</td>
+        <td>{{employee.name}}</td>
+      </tr>
+      <tr>
+        <td>Employee country :</td>
+        <td>{{employee.country}}</td>
+      </tr>
+      <tr>
+        <td>Employee email :</td>
+        <td>{{employee.email}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="wrapper">
+    <div class="inner">
+      <mat-spinner *ngIf="!isLoading"></mat-spinner>
+    </div>
+  </div>
+</mat-card>
