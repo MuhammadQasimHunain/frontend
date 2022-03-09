@@ -21,4 +21,20 @@ describe('UserRegistrationFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should check user registration fields has name', () => {
+    expect(component.nameFormControl).toBeTruthy();
+  });
+
+  it('should check user registration fields has countryFormControl', () => {
+    expect(component.countryFormControl).toBeTruthy();
+  });
+
+  it('should check user registration fields has emailFormControl', () => {
+    expect(component.emailFormControl).toBeTruthy();
+  });
+
+  it('should check user registration fields has countryFormControl', () => {
+    expect(component.countryFormControl).toBeTruthy();
+  });
 });
